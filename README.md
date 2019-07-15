@@ -1,6 +1,5 @@
 # Udagram Image Filtering Microservice
 
-## Tasks
 
 ### Setup Node Enviornment
 
@@ -9,19 +8,12 @@ You'll need to create a new node server. Open a new terminal within the project 
 1. Initialize a new project: `npm i`
 2. run the development server with `npm run dev`
 
-### Create a new endpoint in the server.ts file
+### local test
+[Test on your localhost:8082](http://localhost:8082/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg)
 
-The starter code has a task for you to complete an endpoint in `./src/server.ts` which uses query paramater to download an image from a public URL, filter the image, and return the result.
+### Demo on elasticbean
 
-We've included a few helper functions to handle some of these concepts and we're importing it for you at the top of the `./src/server.ts`  file.
-
-```typescript
-import {filterImageFromURL, deleteLocalFiles} from './util/util';
-```
-
-### Deploying your system
-
-Follow the process described in the course to `eb init` a new application and `eb create` a new enviornment to deploy your image-filter service! Don't forget you can use `eb deploy` to push changes.
+[AWS EB link (http://project2-dev.eu-central-1.elasticbeanstalk.com/filteredimage?image_url=https://i.pinimg.com/originals/3c/d2/a8/3cd2a844037b921028481f9f3f82d21f.jpg)](http://project2-dev.eu-central-1.elasticbeanstalk.com/filteredimage?image_url=https://i.pinimg.com/originals/3c/d2/a8/3cd2a844037b921028481f9f3f82d21f.jpg)
 
 ## Stand Out (Optional)
 

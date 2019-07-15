@@ -45,8 +45,8 @@ import { resolve } from 'bluebird';
       let filterImage=await filterImageFromURL(image_url);
        res.status(200).sendFile(filterImage,err=>{
         deleteLocalFiles([filterImage])
-        .then(a=>console.log("Failed deleted:"+filterImage))
-        .catch(error=>console.log("Failed to delete: "+error)); 
+        .then(a=>console.log("Successfully deleted:"+filterImage))
+        .catch(error=>console.error("Failed to delete: "+error)); 
        });
     }else{
       return res.status(422).json({image_url_status_code:statusCode});
