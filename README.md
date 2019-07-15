@@ -15,18 +15,10 @@ You'll need to create a new node server. Open a new terminal within the project 
 
 [AWS EB link (http://project2-dev.eu-central-1.elasticbeanstalk.com/filteredimage?image_url=https://i.pinimg.com/originals/3c/d2/a8/3cd2a844037b921028481f9f3f82d21f.jpg)](http://project2-dev.eu-central-1.elasticbeanstalk.com/filteredimage?image_url=https://i.pinimg.com/originals/3c/d2/a8/3cd2a844037b921028481f9f3f82d21f.jpg)
 
-## Stand Out (Optional)
+### Validation
+Validates given url for:
+* png jpg extension (url contains .png and .jpg)
+* url access (with request extension)
 
-### Refactor the course RESTapi
-
-If you're feeling up to it, refactor the course RESTapi to make a request to your newly provisioned image server.
-
-### Authentication
-
-Prevent requests without valid authentication headers.
-> !!NOTE if you choose to submit this, make sure to add the token to the postman collection and export the postman collection file to your submission so we can review!
-
-### Custom Domain Name
-
-Add your own domain name and have it point to the running services (try adding a subdomain name to point to the processing server)
-> !NOTE: Domain names are not included in AWS’ free tier and will incur a cost.
+### Screenshot
+![EB dashboard screenshot](https://github.com/Awais16/Udagram/blob/master/deployment_screenshots/Screenshot%202019-07-16%20at%2000.28.57.png?raw=true =400x300)
