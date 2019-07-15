@@ -21,4 +21,4 @@ Validates given url for:
 * url access (with request extension)
 
 ### Screenshot
-![EB dashboard screenshot](https://github.com/Awais16/Udagram/blob/master/deployment_screenshots/Screenshot%202019-07-16%20at%2000.28.57.png?raw=true =400x300)
+![EB dashboard screenshot](/deployment_screenshots/Screenshot%202019-07-16%20at%2000.28.57.png =400x300)
