@@ -1,6 +1,8 @@
-import express from 'express';
+import express,{Request,Response, response} from 'express';
 import bodyParser from 'body-parser';
-import {filterImageFromURL, deleteLocalFiles} from './util/util';
+import {checkUrl,filterImageFromURL, deleteLocalFiles} from './util/util';
+import { resolve } from 'bluebird';
+
 
 (async () => {
 
@@ -28,6 +30,28 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   //   the filtered image file [!!TIP res.sendFile(filteredpath); might be useful]
 
   /**************************************************************************** */
+
+  app.get("/filteredimage",async(req:Request,res:Response)=>{
+    let { image_url } = req.query;
+    if(!image_url)
+      return res.status(400).send("image_url is required");
+
+    if(!(image_url.includes(".png") || image_url.includes(".jpg"))){
+      return res.status(415).send("handles .png and .jpg extension");
+    }
+    
+    let statusCode=await checkUrl(image_url);
+    if(statusCode===200){
+      let filterImage=await filterImageFromURL(image_url);
+       res.status(200).sendFile(filterImage,err=>{
+        deleteLocalFiles([filterImage])
+        .then(a=>console.log("Failed deleted:"+filterImage))
+        .catch(error=>console.log("Failed to delete: "+error)); 
+       });
+    }else{
+      return res.status(422).json({image_url_status_code:statusCode});
+    }
+  });
 
   //! END @TODO1
   

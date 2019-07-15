@@ -1,5 +1,7 @@
 import fs from 'fs';
 import Jimp = require('jimp');
+import { resolve } from 'bluebird';
+import request, { Response } from 'request';
 
 // filterImageFromURL
 // helper function to download, filter, and save the filtered image locally
@@ -31,4 +33,16 @@ export async function deleteLocalFiles(files:Array<string>){
     for( let file of files) {
         fs.unlinkSync(file);
     }
+}
+
+export async function checkUrl(url:string):Promise<number>{
+    return new Promise((resolve,reject)=>{
+        request({ url: url, method: 'HEAD' }, function(err:any, res:Response) {
+            if (err) {
+                resolve(400);
+                return;
+            }
+            resolve(res.statusCode);
+          });
+    });
 }
